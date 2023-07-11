@@ -58,7 +58,6 @@ body{
     transform: translateX(-80px);
     transition: opacity 0.8s ease, transform 0.4s ease;
 }
-
 .campground.animate {
     opacity: 1;
     transform: translateX(0);
