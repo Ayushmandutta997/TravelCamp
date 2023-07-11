@@ -63,3 +63,6 @@ body{
     opacity: 1;
     transform: translateX(0);
 }
+.navbar-toggler-icon {
+    color: white; 
+  }
