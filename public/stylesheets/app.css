@@ -64,7 +64,7 @@ body{
     transform: translateX(0);
 }
 .navbar-toggler,.navbar-toggler-icon {
-    color: white; 
+    background-color: white;
 }
 /* Styles for big screens */
 @media screen and (min-width: 1200px) {
