@@ -10,12 +10,13 @@ function isElementInViewport(element) {
 // Function to handle the scroll event
 function handleScroll() {
     const campgrounds = document.querySelectorAll('.campground');
-    campgrounds.forEach(campground => {
-        if (isElementInViewport(campground)) {
-            campground.classList.add('animate');
-        }
+    campgrounds.forEach((campground, index) => {
+      if (index !== 0 && isElementInViewport(campground)) {
+        campground.classList.add('animate');
+      }
     });
-}
+  }
+  
 
 // Attach scroll event listener
 window.addEventListener('scroll', handleScroll);
