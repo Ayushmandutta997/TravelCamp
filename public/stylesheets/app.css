@@ -65,4 +65,19 @@ body{
 }
 .navbar-toggler,.navbar-toggler-icon {
     color: white; 
+}
+/* Styles for big screens */
+@media screen and (min-width: 1200px) {
+    .campground-image {
+      min-width: 500px;
+      min-height: 500px;
+    }
+  }
+  
+  /* Styles for small screens */
+  @media screen and (max-width: 767px) {
+    .campground-image {
+      min-width: 300px;
+      min-height: 300px;
+    }
   }
