@@ -19,12 +19,15 @@ const userRoutes=require('./routes/users')
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet=require('helmet');
 const MongoDBStore = require('connect-mongo');
+
 mongoose.connect(dburl);
 const db=mongoose.connection;
+
 db.on("error",console.error.bind(console,"connection error:"));
 db.once("open",()=>{
     console.log("Database connected");
 });
+
 const app=express();
 app.engine('ejs',ejsMate);
 app.set('view engine','ejs');
@@ -102,7 +105,9 @@ app.use(
         },
     })
 );
+
 const secret=process.env.SECRET
+
 const store = MongoDBStore.create({
     mongoUrl: dburl,
     touchAfter: 24 * 60 * 60,

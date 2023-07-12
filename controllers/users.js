@@ -1,7 +1,11 @@
 const User=require('../models/user');
+
+// Render the register form
 module.exports.renderRegister=(req,res)=>{
     res.render('users/register')
 }
+
+// Handle user registration
 module.exports.newRegister=async(req,res,next)=>{
     try{
     const {email,username,password}=req.body;
@@ -18,14 +22,21 @@ module.exports.newRegister=async(req,res,next)=>{
         res.redirect('/register');
     }
 }
+
+// Render the login form
 module.exports.renderLogin=(req,res)=>{
     res.render('users/login'); 
- }
+}
+
+// Handle user login
 module.exports.Login=(req,res)=>{
     req.flash('success',`Welcome Back ${req.user.username}!`)
+    // Get the redirect URL from the request object or default to the campgrounds page
     const redirectUrl=res.locals.returnTo || '/campgrounds';
     res.redirect(redirectUrl);
- } 
+} 
+
+// Get the redirect URL from the request object or default to the campgrounds page
 module.exports.Logout=(req, res, next) => {
     req.logout(function (err) {
         if (err) {

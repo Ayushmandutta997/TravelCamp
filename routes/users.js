@@ -5,6 +5,7 @@ const passport=require('passport');
 const wrapasync=require('../utils/wrapsync');
 const users = require('../controllers/users');
 
+// Defining routes for users
 router.route('/register').get(users.renderRegister
     ).post(wrapasync(users.newRegister))
 

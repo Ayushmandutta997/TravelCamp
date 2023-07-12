@@ -4,16 +4,19 @@
     border: 5px solid #242582;
     border-radius: 8px;
 }
+
 .card,.list-group-item {
     border: 5px solid #242582;
     border-radius: 8px;
     color: rgb(255, 255, 255);
     background-color:#0c0c1f;
 }
+
 #searchbar{
     font-size: 15px;
     font-weight: bold;  
 }
+
 .btn{
     background-color: #0c0c1f;
     border-radius: 0px;
@@ -22,22 +25,27 @@
     font-size: 15px;
     font-weight: bold;
 }
+
 .btn:hover {
-    background-color:rgb(187, 187, 229);
-    color: white;
-  }
+background-color:rgb(187, 187, 229);
+color: white;
+}
+
 .btn:active{
     transform: scale(0.95);
 }  
+
 body{
     background-color:#010126;
     color: white;
     font-weight: bolder;
 }
+
 .navbar-brand{
     color: white;
     font-weight: bolder;
 }
+
 .nav-link {
     padding: 0.25rem 0;
     font-weight: 700;
@@ -45,46 +53,61 @@ body{
     margin-left: 1rem;
     border-bottom: 0.25rem solid transparent;
 }
+
 .nav-link:hover{
     color: rgba(255,255,255,0.5);
     border-bottom-color:rgba(255,255,255,0.5);
 }
+
 .nav-link.active {
     color: white;
     border-bottom-color:white;
 }
+
 .campground {
     opacity: 0;
     transform: translateX(-80px);
     transition: opacity 0.8s ease, transform 0.4s ease;
 }
+
 .campground.animate {
     opacity: 1;
     transform: translateX(0);
 }
+
 .navbar-toggler,.navbar-toggler-icon {
     background-color: white;
 }
+
 /* Styles for big screens */
 @media screen and (min-width: 1200px) {
-    .campground-image {
-      min-width: 500px;
-      min-height: 500px;
-    }
-    .img-fluid{
-        min-width: 400px;
-        min-height: 270px;  
-    }
-  }
+.campground-image {
+    min-width: 500px;
+    min-height: 500px;
+}
+.img-fluid{
+    min-width: 400px;
+    min-height: 270px;  
+}
+}
   
-  /* Styles for small screens */
-  @media screen and (max-width: 767px) {
-    .campground-image {
-      min-width: 300px;
-      min-height: 300px;
-    }
-    .img-fluid{
-        min-width: 400px;
-        min-height: 270px;  
-    }
-  }
+/* Styles for small screens */
+@media screen and (max-width: 767px) {
+.campground-image {
+    min-width: 300px;
+    min-height: 300px;
+}
+.img-fluid{
+    min-width: 400px;
+    min-height: 270px;  
+}
+}
+
+div.scroll {
+    margin:4px, 4px;
+    padding:4px;
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
+}

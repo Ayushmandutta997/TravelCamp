@@ -1,5 +1,7 @@
 const express=require('express');
 const router=express.Router({mergeParams:true});
+
+// Import necessary dependencies and modules
 const wrapasync=require('../utils/wrapsync'); 
 const campgrounds=require('../controllers/campgrounds')
 const {isLoggedIn,isAuthor,validateCampground}=require('../middleware')
@@ -7,6 +9,7 @@ const multer  = require('multer')
 const {storage}=require('../cloudinary')
 const upload = multer({storage});
 
+// Define routes for campgrounds
 router.route('/')
 .get(wrapasync(campgrounds.index))
 .post(isLoggedIn,upload.array('image'),validateCampground,wrapasync(campgrounds.createCampground))

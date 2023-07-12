@@ -1,13 +1,26 @@
 const Campground=require('../models/campground');
+
+// Importing the Mapbox Geocoding service,
+// which functionality for geocoding and reverse geocoding, 
+// converting addresses to coordinates and vice versa.
 const mbxgeocoding=require('@mapbox/mapbox-sdk/services/geocoding')
 const mbxtoken=process.env.MAPBOX_TOKEN;
+
+// geocoder object can be used to perform geocoding and reverse geocoding operations.
 const geocoder=mbxgeocoding({accessToken:mbxtoken})
+
+// The cloudinary object provides access to various methods for 
+// working with Cloudinary services, such as uploading and managing images.
 const { cloudinary } = require("../cloudinary");
-const campground = require('../models/campground');
+
+
+// Render the index page with all campgrounds
 module.exports.index=async (req, res) => {
     const campgrounds = await Campground.find({});
     res.render('campgrounds/index', {campgrounds})
 }
+
+// Render the new campground form
 module.exports.renderNewForm=(req,res)=>{
     if(!req.isAuthenticated())
     {
@@ -16,6 +29,8 @@ module.exports.renderNewForm=(req,res)=>{
     }
     res.render('campgrounds/new');
 }
+
+// Create a new campground
 module.exports.createCampground=async(req,res,next)=>{
     const geoData=await geocoder.forwardGeocode({
           query:req.body.campground.location,
@@ -31,6 +46,8 @@ module.exports.createCampground=async(req,res,next)=>{
     req.flash('success','Successfully made a new campground!')
     res.redirect(`/campgrounds/${campground._id}`)
 }
+
+// Show a specific campground
 module.exports.showCampground=async(req,res)=>{
     const campground=await Campground.findById(req.params.id).populate(
         {path:'reviews',
@@ -44,6 +61,8 @@ module.exports.showCampground=async(req,res)=>{
     }
     res.render('campgrounds/show',{campground})
 }
+
+// Render the edit campground form
 module.exports.renderEditForm=async(req,res)=>{
     const{id}=req.params;
     const campground = await Campground.findById(id)
@@ -54,6 +73,8 @@ module.exports.renderEditForm=async(req,res)=>{
     }
     res.render('campgrounds/edit',{campground});
 }
+
+// Update a campground
 module.exports.editCampground=async(req,res)=>{
     const{id}=req.params;
     const campground=await Campground.findByIdAndUpdate(id,{...req.body.campground});
@@ -70,6 +91,8 @@ module.exports.editCampground=async(req,res)=>{
     req.flash('success','Successfully updated the campground!')
     res.redirect(`/campgrounds/${campground._id}`)
 }
+
+// Delete a campground
 module.exports.deleteCampground=async(req,res)=>{
     const{id}=req.params;
     await Campground.findByIdAndDelete(id);

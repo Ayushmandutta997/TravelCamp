@@ -10,20 +10,20 @@ function isElementInViewport(element) {
     return elementTop - threshold <= screenHeight;
   }
   
-
-  function handleScroll() {
-    const campgrounds = document.querySelectorAll('.campground');
-    for (let i = 0; i < campgrounds.length; i++) {
-      const campground = campgrounds[i];
-      if (i === 0) {
+// Function to handle scrolling on index page
+function handleScroll() {
+const campgrounds = document.querySelectorAll('.campground');
+for (let i = 0; i < campgrounds.length; i++) {
+    const campground = campgrounds[i];
+    if (i === 0) {
+    campground.classList.add('animate');
+    } else {
+    if (isElementInViewport(campground)) {
         campground.classList.add('animate');
-      } else {
-        if (isElementInViewport(campground)) {
-          campground.classList.add('animate');
-        }
-      }
     }
-  }
+    }
+}
+}
   
 
 // Attach scroll event listener

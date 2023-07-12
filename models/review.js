@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 
+// Creating the review schema
 const reviewSchema=new Schema({
     body: String,
     rating:Number,
@@ -9,4 +10,6 @@ const reviewSchema=new Schema({
         ref: 'User'
     }
 });
+
+// Exporting the review model
 module.exports=mongoose.model("Review",reviewSchema);
