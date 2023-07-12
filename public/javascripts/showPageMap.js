@@ -44,6 +44,7 @@ directions = new MapboxDirections({
     profile: "mapbox/driving-traffic",
     controls:{
         profileSwitcher: ps,
+        instructions:ps
     }
 });
 map.addControl(directions,'top-left');
