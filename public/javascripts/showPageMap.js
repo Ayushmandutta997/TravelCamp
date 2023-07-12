@@ -31,7 +31,8 @@ new mapboxgl.GeolocateControl({
     }),
 );
 directions = new MapboxDirections({
-    accessToken: mapboxgl.accessToken
+    accessToken: mapboxgl.accessToken,
+    interactive: false,
 });
 map.addControl(directions,'top-left');
 map.on('load',  function() {
