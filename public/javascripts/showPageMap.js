@@ -30,9 +30,18 @@ new mapboxgl.GeolocateControl({
     showUserHeading: true
     }),
 );
+let prof;
+const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+if (windowWidth < 768) {
+    prof=false;
+}
+else
+{
+    prof="mapbox/driving-traffic";
+}
 directions = new MapboxDirections({
     accessToken: mapboxgl.accessToken,
-    controls: { instructions: false }
+    profile: prof
 });
 map.addControl(directions,'top-left');
 map.on('load',  function() {
