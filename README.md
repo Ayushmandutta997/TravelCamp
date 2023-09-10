@@ -36,6 +36,6 @@ Welcome to the TravelCamp App! This application is designed to help outdoor enth
 
 ![Individual Campground Page](images/View.jpg)
 
-If you have any questions or feedback, feel free to contact us at [ayushman746@gmail.com](mailto:ayushman746@gmail.com).
+If you have any questions or feedback, feel free to contact me at [ayushman746@gmail.com](mailto:ayushman746@gmail.com).
 
 Happy Camping!
